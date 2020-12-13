@@ -1,0 +1,51 @@
+<%
+import csv
+from bottle import request
+
+#get prices
+kill=request.forms.get('kill')
+live=request.forms.get('live')
+hanging=request.forms.get('hanging')
+cube=request.forms.get('cube')
+patty=request.forms.get('patty')
+stew=request.forms.get('stew')
+boning=request.forms.get('boning')
+
+rows=[ ['killCharge',kill],
+       ['liveCharge',live],
+       ['hangingCharge',hanging],
+       ['cubeCharge',cube],
+       ['pattyCharge',patty],
+       ['stewCharge', stew],
+       ['boningCharge',boning]
+    ]
+
+#change values in csv
+with open('pricesBeef.csv', 'w', newline='') as csvfile:
+    writer=csv.writer(csvfile)
+    writer.writerows(rows)
+
+%>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Gettinger's billing</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1>Gettinger Family Custom Meats Billing System</h1>
+	<h2>Showing new Prices</h2>
+    <p>New kill cost: {{'{0:.2f}'.format(float(kill))}}</p>
+    <p>New live weight cost: {{'{0:.2f}'.format(float(live))}}</p>
+    <p>New processing cost (per lb): {{'{0:.2f}'.format(float(hanging))}}</p>
+    <p>New cubing cost (per lb): {{'{0:.2f}'.format(float(cube))}}</p>
+    <p>New patty cost (per lb): {{'{0:.2f}'.format(float(patty))}}</p>
+    <p>New stew cost (per lb): {{'{0:.2f}'.format(float(stew))}}</p>
+    <p>New boning cost (per lb): {{'{0:.2f}'.format(float(boning))}}</p>
+    <form action="/setPrices" method="route" >
+		<input type="submit" value="To go back and undo changes" >
+    </form>
+    <br>
+    <form action="/" method="route" >
+		<input type="submit" value="Return Home" >
+	</form>

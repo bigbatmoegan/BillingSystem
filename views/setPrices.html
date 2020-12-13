@@ -1,0 +1,64 @@
+<%
+file=open("pricesBeef.csv","r")
+charges=[]
+prices=[]
+for line in file:
+    currentline=line.split(",")
+    (charge,cost)=currentline
+    charges.append(charge)
+    cost=float(cost)
+    prices.append(cost)
+    end
+
+#Order of prices killcharge,hangingweight,cube,patties,stewmeat,boning
+killCost=prices[0]
+liveCost=prices[1]
+hangingCost=prices[2]
+cubeCost=prices[3]
+pattiesCost=prices[4]
+stewCost=prices[5]
+boningCost=prices[6]
+
+%>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Gettinger's billing</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1>Gettinger Family Custom Meats Billing System</h1>
+	<h2>Please enter the new prices</h2>
+    <h3>Enter price shown if no changes</h3>
+    <form action="/priceChange" method="post">
+        <fieldset>
+            <p>Beef Prices</p>
+            <label for="kill">Kill charge currently: ${{killCost}} --- New cost:    </label>
+            <input type="text" id="kill" name="kill" value="{{killCost}}">
+            <br><br>
+            <label for="live">Live weight charge (company beef) currently: ${{liveCost}} --- New cost: </label>
+            <input type="text" id="live" name="live" value="{{liveCost}}">
+            <br><br>
+            <label for="hanging">Processing cost currently: ${{hangingCost}} --- New cost: </label>
+            <input type="text" id="hanging" name="hanging" value="{{hangingCost}}">
+            <br><br>
+            <label for="cube">Cubing cost currently: ${{cubeCost}} --- New cost: </label>
+            <input type="text" id="cube" name="cube" value="{{cubeCost}}">
+            <br><br>
+            <label for="patty">Patty cost currently: ${{pattiesCost}} --- New cost:</label>
+            <input type="text" id="patty" name="patty" value="{{pattiesCost}}">
+            <br><br>
+            <label for="stew">Stew cost currently: ${{stewCost}} --- New cost:</label>
+            <input type="text" id="stew" name="stew" value="{{stewCost}}">
+            <br><br>
+            <label for="boning">Boning cost currently: ${{boningCost}} --- New cost:</label>
+            <input type="text" id="boning" name="boning" value="{{boningCost}}">
+            <br><br>
+            <p>Hog Prices</p>
+            <br><br>
+            <p>Lamb Prices</p>
+            <br><br>
+            <button type="submit">Change Prices</button>
+        </fieldset>
+    </form>
+</body>        

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Gettinger's billing</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <h1>Gettinger Family Custom Meats Billing System</h1>
+    <h2>Please enter the following information</h2>
+    <form action="/beefRecipt" method="post">
+        <fieldset>
+            <p>Order information</p>
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="phone">Phone number: </label>
+            <input type="text" id="phone" name="phone"><br><br>
+            <label for="ticket">Ticket number: </label>
+            <input type="text" id="ticket" name="ticket"><br><br>
+            <label for="date">Date: </label>
+            <input type="text" id="date" name="date"><br><br>
+            <label for="orderAmount">Amount brought in: </label>
+            <input type="text" id="orderAmount" name="orderAmount"><br><br>
+            <p>Weights</p><br>
+            <label for="liveWeight">Live Weight: </label>
+            <input type="text" id=liveWeight" name="liveWeight"><br><br>
+            <label for="hangingWeight">Hanging weight: </label>
+            <input type="text" id="hangingWeight" name="hangingWeight"><br><br>
+            <label for="cubeWeight">Cube weight: </label>
+            <input type="text" id="cubeWeight" name="cubeWeight"><br><br>
+            <label for="pattyWeight">Patty weight: </label>
+            <input type="text" id="pattyWeight" name="pattyWeight"><br><br>
+            <label for="stewWeight">Stew weight: </label>
+            <input type="text" id="stewWeight" name="stewWeight"><br><br>
+            <label for="boningWeight">Boning weight: </label>
+            <input type="text" id="boningWeight" name="boningWeight"><br><br>
+            <button type="submit">Calculate Bill</button>
+        </fieldset>
+    </form>
+</body>
+</html>

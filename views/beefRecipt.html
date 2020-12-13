@@ -1,0 +1,91 @@
+<%
+#import all items needed: csv, request
+
+import csv
+from bottle import request
+
+#get values from billing
+
+name=request.forms.get('name')
+phone=request.forms.get('phone')
+ticket=request.forms.get('ticket')
+date=request.forms.get('date')
+orderAmount=request.forms.get('orderAmount')
+orderAmount=float(orderAmount)
+liveWeight=request.forms.get('liveWeight')
+liveWeight=int(liveWeight)
+hangingWeight=request.forms.get('hangingWeight')
+hangingWeight=int(hangingWeight)
+cubeWeight=request.forms.get('cubeWeight')
+cubeWeight=int(cubeWeight)
+pattyWeight=request.forms.get('pattyWeight')
+pattyWeight=int(pattyWeight)
+stewWeight=request.forms.get('stewWeight')
+stewWeight=int(stewWeight)
+boningWeight=request.forms.get('boningWeight')
+boningWeight=int(boningWeight)
+
+#pull prices from CSV file
+file=open("pricesBeef.csv","r")
+charges=[]
+prices=[]
+for line in file:
+    currentline=line.split(",")
+    (charge,cost)=currentline
+    charges.append(charge)
+    cost=float(cost)
+    prices.append(cost)
+    end
+
+killCharge=orderAmount*prices[0]
+purchaseCost=(liveWeight*prices[1])*orderAmount
+processingCost=hangingWeight*prices[2]
+cubeCost=cubeWeight*prices[3]
+pattyCost=pattyWeight*prices[4]
+stewCost=stewWeight*prices[5]
+boningCost=boningWeight*prices[6]
+totalCost=killCharge+processingCost+cubeCost+pattyCost+stewCost+boningCost+purchaseCost
+
+#round to format correctly
+processingCost=str(round(processingCost, 2))
+cubeCost=str(round(cubeCost, 2))
+pattyCost=str(round(pattyCost, 2))
+stewCost=str(round(stewCost, 2))
+boningCost=str(round(boningCost, 2))
+totalCost=str(round(totalCost, 2))
+purchaseCost=str(round(purchaseCost, 2))
+
+%>
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Gettinger's billing</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/billing.css">
+</head>
+<body>
+    <h1>Gettinger's Family Custom Meats</h1>
+    <h2>4733 E. GINGS RD. RUSHVILLE, IN 46173</h2>
+    <h3>(765) 932-3298</h3>
+    <p class="left">Name: {{name}}</p>
+    <p class="right">Phone Number: {{phone}}</p>
+    <p class="left">Hanging Weight: {{hangingWeight}}</p>
+    <p class="right">Number brought in: {{orderAmount}}</p>
+    <p class="left">Ticket Number: {{ticket}}</p>
+    <p class="right">Date: {{date}}</p>
+    <p>______________________________________________</p>
+    <br>
+    <p>Kill Charge:  ${{killCharge}}</p>
+    <p>Processing charge: ${{'{0:.2f}'.format(float(processingCost))}} </p>
+    <p>Cube charge ${{'{0:.2f}'.format(float(cubeCost))}}</p>
+    <p>Patty charge: ${{'{0:.2f}'.format(float(pattyCost))}}</p>
+    <p>Stew charge: ${{'{0:.2f}'.format(float(stewCost))}}</p>
+    <p>Boning charge: ${{'{0:.2f}'.format(float(boningCost))}}</p>
+    <p>Purchase cost: ${{'{0:.2f}'.format(float(purchaseCost))}}</p>
+    <p>Total cost: ${{'{0:.2f}'.format(float(totalCost))}}</p>
+    <p>Butcher's Notes: </p>
+    <button onclick="window.print()">Save Invoice</button>
+    <form action="/" method="route" >
+		<input type="submit" value="Return Home" >
+	</form>
