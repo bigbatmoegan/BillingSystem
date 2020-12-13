@@ -1,0 +1,12 @@
+.left {
+    float: left;
+    clear:both;
+}
+
+.right {
+    float:left;
+}
+
+p {
+    width: 200px;
+}
