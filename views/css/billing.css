@@ -10,3 +10,11 @@
 p {
     width: 200px;
 }
+
+input[type="button"]
+{
+    background-color: blue;
+    color: yellow;
+    border: solid black 2px;
+    width: 100%;
+}
