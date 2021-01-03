@@ -65,27 +65,32 @@ purchaseCost=str(round(purchaseCost, 2))
     <link rel="stylesheet" type="text/css" href="css/billing.css">
 </head>
 <body>
-    <h1>Gettinger's Family Custom Meats</h1>
-    <h2>4733 E. GINGS RD. RUSHVILLE, IN 46173</h2>
-    <h3>(765) 932-3298</h3>
-    <p class="left">Name: {{name}}</p>
-    <p class="right">Phone Number: {{phone}}</p>
-    <p class="left">Hanging Weight: {{hangingWeight}}</p>
-    <p class="right">Number brought in: {{orderAmount}}</p>
-    <p class="left">Ticket Number: {{ticket}}</p>
-    <p class="right">Date: {{date}}</p>
-    <p>______________________________________________</p>
-    <br>
-    <p>Kill Charge:  ${{killCharge}}</p>
-    <p>Processing charge: ${{'{0:.2f}'.format(float(processingCost))}} </p>
-    <p>Cube charge ${{'{0:.2f}'.format(float(cubeCost))}}</p>
-    <p>Patty charge: ${{'{0:.2f}'.format(float(pattyCost))}}</p>
-    <p>Stew charge: ${{'{0:.2f}'.format(float(stewCost))}}</p>
-    <p>Boning charge: ${{'{0:.2f}'.format(float(boningCost))}}</p>
-    <p>Purchase cost: ${{'{0:.2f}'.format(float(purchaseCost))}}</p>
-    <p>Total cost: ${{'{0:.2f}'.format(float(totalCost))}}</p>
-    <p>Butcher's Notes: </p>
-    <button onclick="window.print()">Save Invoice</button>
-    <form action="/" method="route" >
-		<input type="submit" value="Return Home" >
-	</form>
+    <div class="recipt">
+        <h1 class="rh1">Gettinger's Family Custom Meats</h1>
+        <h2 class="rh2">4733 E. GINGS RD. RUSHVILLE, IN 46173</h2>
+        <h3 class="rh3">(765) 932-3298</h3>
+        <p class="left">Name: {{name}}</p>
+        <p class="right">Phone Number: {{phone}}</p>
+        <p class="left">Hanging Weight: {{hangingWeight}}</p>
+        <p class="right">Number brought in: {{orderAmount}}</p>
+        <p class="left">Ticket Number: {{ticket}}</p>
+        <p class="right">Date: {{date}}</p>
+        <p>________________________________________________________________</p>
+        <p class="left">Kill Charge:</p> <p class="right">${{'{0:.2f}'.format(float(killCharge))}}</p>
+        <p class="left">Processing charge:</p> <p class="right">${{'{0:.2f}'.format(float(processingCost))}} </p>
+        <p class="left">Cube charge: </p> <p class="right">${{'{0:.2f}'.format(float(cubeCost))}}</p>
+        <p class="left">Patty charge: </p> <p class="right">${{'{0:.2f}'.format(float(pattyCost))}}</p>
+        <p class="left">Stew charge: </p> <p class="right">${{'{0:.2f}'.format(float(stewCost))}}</p>
+        <p class="left">Boning charge: </p> <p class="right">${{'{0:.2f}'.format(float(boningCost))}}</p>
+        <p class="left">Purchase cost: </p> <p class="right">${{'{0:.2f}'.format(float(purchaseCost))}}</p>
+        <p class="left">Total cost: </p> <p class="right">${{'{0:.2f}'.format(float(totalCost))}}</p>
+        <p>Butcher's Notes: </p>
+        <br>
+        <br>
+        <button id="button1" onclick="window.print()">Save Invoice</button>
+        <form action="/" method="route" >
+		    <input id="button2" type="submit" value="Return Home">
+        </form>
+    </div>
+</body>
+</html>

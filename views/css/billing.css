@@ -1,6 +1,7 @@
 .left {
     float: left;
     clear:both;
+    padding-left: 100px;
 }
 
 .right {
@@ -8,7 +9,9 @@
 }
 
 p {
-    width: 200px;
+    font-size: 18px;
+    width: 300px;
+    font-family: Arial, sans-serif;
 }
 
 input[type="button"]
@@ -17,4 +20,63 @@ input[type="button"]
     color: yellow;
     border: solid black 2px;
     width: 100%;
+    display: inline-block;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+h3 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+button {
+    background-color: #fce303;
+    border-radius: 16px;
+    font-size: 30px;
+    display: inline-block;
+}
+
+input[type="submit"] {
+    background-color: #fce303;
+    border-radius: 16px;
+    font-size: 30px;
+}
+
+.rh1 {
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    padding-left: 50px;
+}
+
+.rh2 {
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.rh3 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-align: left;
+    padding-left: 237px;
+}
+
+label {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
 }

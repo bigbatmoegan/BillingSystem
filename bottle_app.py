@@ -40,6 +40,10 @@ def priceChange():
 @route('/css/<filename>')
 def css(filename):
     return static_file(filename, root='./views/css')
+	
+@route('/js/<filename>')
+def js(filename):
+    return static_file(filename, root='./views/js')
 application=default_app()
 
 run(host="localhost", port=8080, debug=True)
