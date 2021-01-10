@@ -31,17 +31,28 @@ with open('pricesBeef.csv', 'w', newline='') as csvfile:
 <head>
     <title>Gettinger's billing</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/billing.css">
+
 </head>
 <body>
     <h1>Gettinger Family Custom Meats Billing System</h1>
-	<h2>Showing new Prices</h2>
-    <p>New kill cost: {{'{0:.2f}'.format(float(kill))}}</p>
-    <p>New live weight cost: {{'{0:.2f}'.format(float(live))}}</p>
-    <p>New processing cost (per lb): {{'{0:.2f}'.format(float(hanging))}}</p>
-    <p>New cubing cost (per lb): {{'{0:.2f}'.format(float(cube))}}</p>
-    <p>New patty cost (per lb): {{'{0:.2f}'.format(float(patty))}}</p>
-    <p>New stew cost (per lb): {{'{0:.2f}'.format(float(stew))}}</p>
-    <p>New boning cost (per lb): {{'{0:.2f}'.format(float(boning))}}</p>
+    <h2>Showing new Prices</h2>
+    <div style="width: 33%; float: left;">
+        <h3>Beef Prices</h3>
+        <p>New kill cost: {{'{0:.2f}'.format(float(kill))}}</p>
+        <p>New live weight cost: {{'{0:.2f}'.format(float(live))}}</p>
+        <p>New processing cost (per lb): {{'{0:.2f}'.format(float(hanging))}}</p>
+        <p>New cubing cost (per lb): {{'{0:.2f}'.format(float(cube))}}</p>
+        <p>New patty cost (per lb): {{'{0:.2f}'.format(float(patty))}}</p>
+        <p>New stew cost (per lb): {{'{0:.2f}'.format(float(stew))}}</p>
+        <p>New boning cost (per lb): {{'{0:.2f}'.format(float(boning))}}</p>
+    </div>
+    <div style="width: 33%; float: right;">
+        <h3>Lamb Prices</h3>
+    </div>
+    <div style="width: 33%;  margin-left: 33%;">
+        <h3>Hog Prices</h3>
+    </div>
     <form action="/setPrices" method="route" >
 		<input type="submit" value="To go back and undo changes" >
     </form>

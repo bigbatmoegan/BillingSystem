@@ -35,8 +35,10 @@ for line in file:
     charges.append(charge)
     cost=float(cost)
     prices.append(cost)
-    end
+end
+file.close()
 
+#calculate the costs
 killCharge=orderAmount*prices[0]
 purchaseCost=(liveWeight*prices[1])*orderAmount
 processingCost=hangingWeight*prices[2]
@@ -54,6 +56,8 @@ stewCost=str(round(stewCost, 2))
 boningCost=str(round(boningCost, 2))
 totalCost=str(round(totalCost, 2))
 purchaseCost=str(round(purchaseCost, 2))
+
+#add to year totals
 
 %>
 

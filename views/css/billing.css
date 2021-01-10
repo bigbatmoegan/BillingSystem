@@ -26,6 +26,7 @@ input[type="button"]
 h1 {
     font-family: Arial, sans-serif;
     font-size: 40px;
+    color: white;
     text-align: center;
 }
 
@@ -33,12 +34,16 @@ h2 {
     font-family: Arial, sans-serif;
     font-size: 32px;
     text-align: center;
+    color: white;
+
 }
 
 h3 {
     font-family: Arial, sans-serif;
     font-size: 24px;
     text-align: center;
+    color: white;
+
 }
 
 
@@ -53,6 +58,7 @@ input[type="submit"] {
     background-color: #fce303;
     border-radius: 16px;
     font-size: 30px;
+
 }
 
 .rh1 {
@@ -60,6 +66,8 @@ input[type="submit"] {
     font-family: Arial, sans-serif;
     font-size: 40px;
     padding-left: 50px;
+    color: white;
+
 }
 
 .rh2 {
@@ -67,6 +75,8 @@ input[type="submit"] {
     font-size: 32px;
     text-align: left;
     padding-left: 50px;
+    color: white;
+
 }
 
 .rh3 {
@@ -74,9 +84,15 @@ input[type="submit"] {
     font-size: 24px;
     text-align: left;
     padding-left: 237px;
+    color: white;
 }
 
 label {
     font-size: 18px;
     font-family: Arial, sans-serif;
 }
+
+body {
+    background-color: darkred;
+}
+

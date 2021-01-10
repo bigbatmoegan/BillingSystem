@@ -16,29 +16,29 @@
                 <fieldset>
                     <p>Order information</p>
                     <label for="name">Name: ___________ </label>
-                    <input type="text" id="name" name="name"><br><br>
+                    <input type="text" id="name" name="name" required><br><br>
                     <label for="phone">Phone number: ____</label>
-                    <input type="text" id="phone" name="phone"><br><br>
+                    <input type="text" id="phone" name="phone" required><br><br>
                     <label for="ticket">Ticket number:_____ </label>
-                    <input type="text" id="ticket" name="ticket"><br><br>
-                    <label for="date">Date: ____________</label>
-                    <input type="text" id="date" name="date"><br><br>
+                    <input type="text" id="ticket" name="ticket" required><br><br>
+                    <label for="date">Date: ____________ </label>
+                    <input type="text" id="date" name="date" required><br><br>
                     <label for="orderAmount">Amount brought in: _</label>
-                    <input type="text" id="orderAmount" name="orderAmount"><br><br>
+                    <input type="text" id="orderAmount" name="orderAmount" required><br><br>
                     <p>Weights</p><br>
-                    <label for="liveWeight">Live Weight: _______ </label>
-                    <input type="number" id=liveWeight" name="liveWeight" min="0">
                     <p>ONLY INCLUDE LIVE WEIGHT FOR PURCHASED BEEF</p><br>
+                    <label for="liveWeight">Live Weight: _______ </label>
+                    <input type="number" required id=liveWeight" name="liveWeight" min="0">
                     <label for="hangingWeight">Hanging weight: ____</label>
-                    <input type="number" id="hangingWeight" name="hangingWeight" min="0"><br><br>
+                    <input type="number" id="hangingWeight" name="hangingWeight" min="0" required><br><br>
                     <label for="cubeWeight">Cube weight: _______</label>
-                    <input type="number" id="cubeWeight" name="cubeWeight" min="0"><br><br>
+                    <input type="number" id="cubeWeight" name="cubeWeight" min="0" required><br><br>
                     <label for="pattyWeight">Patty weight: _______ </label>
-                    <input type="number" id="pattyWeight" name="pattyWeight" min="0"><br><br>
+                    <input type="number" id="pattyWeight" name="pattyWeight" min="0" required><br><br>
                     <label for="stewWeight">Stew weight: _______ </label>
-                    <input type="number" id="stewWeight" name="stewWeight" min="0"><br><br>
+                    <input type="number" id="stewWeight" name="stewWeight" min="0" required><br><br>
                     <label for="boningWeight">Boning weight: _____</label>
-                    <input type="number" id="boningWeight" name="boningWeight" min="0"><br><br>
+                    <input type="number" id="boningWeight" name="boningWeight" min="0"required ><br><br>
                     <button type="submit">Calculate Bill</button>
                 </fieldset>
             </form>
