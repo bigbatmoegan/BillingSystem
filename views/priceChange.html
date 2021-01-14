@@ -2,7 +2,7 @@
 import csv
 from bottle import request
 
-#get prices
+#get prices for beef
 kill=request.forms.get('kill')
 live=request.forms.get('live')
 hanging=request.forms.get('hanging')
@@ -11,6 +11,7 @@ patty=request.forms.get('patty')
 stew=request.forms.get('stew')
 boning=request.forms.get('boning')
 
+#organize values to be written in csv
 rows=[ ['killCharge',kill],
        ['liveCharge',live],
        ['hangingCharge',hanging],
@@ -20,11 +21,61 @@ rows=[ ['killCharge',kill],
        ['boningCharge',boning]
     ]
 
+#get prices for Hog
+killh=request.forms.get('killh')
+liveh=request.forms.get('liveh')
+hangingh=request.forms.get('hangingh')
+cubeh=request.forms.get('cubeh')
+pattyh=request.forms.get('pattyh')
+cure=request.forms.get('cure')
+links=request.forms.get('links')
+boningh=request.forms.get('boningh')
+
+#organize to be written to csvfile
+rowsh=[ ['killCharge',killh],
+        ['liveCharge',liveh],
+        ['hangingCharge',hangingh],
+        ['cubeCharge',cubeh],
+        ['pattyCharge',pattyh],
+        ['cureCharge',cure],
+        ['linksCharge',links],
+        ['boningCharge',boningh]
+     ]
+
+
+#get prices for Lamb
+
+killl=request.forms.get('killl')
+livel=request.forms.get('livel')
+hangingl=request.forms.get('hangingl')
+cubel=request.forms.get('cubel')
+pattyl=request.forms.get('pattyl')
+stewl=request.forms.get('stewl')
+boningl=request.forms.get('boningl')
+
+#organize values to be written in csv
+rowsl=[ ['killCharge',killl],
+       ['liveCharge',livel],
+       ['hangingCharge',hangingl],
+       ['cubeCharge',cubel],
+       ['pattyCharge',pattyl],
+       ['stewCharge', stewl],
+       ['boningCharge',boningl]
+    ]
+
+
 #change values in csv
 with open('pricesBeef.csv', 'w', newline='') as csvfile:
     writer=csv.writer(csvfile)
     writer.writerows(rows)
 
+with open('pricesHog.csv', 'w', newline='') as csvfileh:
+    writerh=csv.writer(csvfileh)
+    writerh.writerows(rowsh)
+
+with open('pricesLamb.csv', 'w', newline='') as csvfilel:
+    writerl=csv.writer(csvfilel)
+    writerl.writerows(rowsl)
 %>
 <!DOCTYPE html>
 <html lang="en-us">
@@ -49,9 +100,24 @@ with open('pricesBeef.csv', 'w', newline='') as csvfile:
     </div>
     <div style="width: 33%; float: right;">
         <h3>Lamb Prices</h3>
+        <p>New kill cost: {{'{0:.2f}'.format(float(killl))}}</p>
+        <p>New live weight cost: {{'{0:.2f}'.format(float(livel))}}</p>
+        <p>New processing cost (per lb): {{'{0:.2f}'.format(float(hangingl))}}</p>
+        <p>New cubing cost (per lb): {{'{0:.2f}'.format(float(cubel))}}</p>
+        <p>New patty cost (per lb): {{'{0:.2f}'.format(float(pattyl))}}</p>
+        <p>New stew cost (per lb): {{'{0:.2f}'.format(float(stewl))}}</p>
+        <p>New boning cost (per lb): {{'{0:.2f}'.format(float(boningl))}}</p>
     </div>
     <div style="width: 33%;  margin-left: 33%;">
         <h3>Hog Prices</h3>
+        <p>New kill cost: {{'{0:.2f}'.format(float(killh))}}</p>
+        <p>New live weight cost: {{'{0:.2f}'.format(float(liveh))}}</p>
+        <p>New processing cost (per lb): {{'{0:.2f}'.format(float(hangingh))}}</p>
+        <p>New cubing cost (per lb): {{'{0:.2f}'.format(float(cubeh))}}</p>
+        <p>New patty cost (per lb): {{'{0:.2f}'.format(float(pattyh))}}</p>
+        <p>New cure cost (per lb): {{'{0:.2f}'.format(float(cure))}}</p>
+        <p>New links cost (per lb): {{'{0:.2f}'.format(float(links))}}</p>
+        <p>New boning cost (per lb): {{'{0:.2f}'.format(float(boningh))}}</p>
     </div>
     <form action="/setPrices" method="route" >
 		<input type="submit" value="To go back and undo changes" >

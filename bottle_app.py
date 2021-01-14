@@ -23,7 +23,7 @@ def hogRecipt():
 
 @route('/lambBill')
 def lambBill():
-    return template(",/views/lambBill.html")
+    return template("./views/lambBill.html")
 	
 @post('/lambRecipt')
 def lambRecipt():

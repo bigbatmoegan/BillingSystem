@@ -1,4 +1,6 @@
 <%
+
+#get beef prices
 file=open("pricesBeef.csv","r")
 charges=[]
 prices=[]
@@ -9,6 +11,7 @@ for line in file:
     cost=float(cost)
     prices.append(cost)
     end
+file.close()
 
 #Order of prices killcharge,hangingweight,cube,patties,stewmeat,boning
 killCost=prices[0]
@@ -18,6 +21,51 @@ cubeCost=prices[3]
 pattiesCost=prices[4]
 stewCost=prices[5]
 boningCost=prices[6]
+
+#get hog prices
+file=open("pricesHog.csv","r")
+chargesh=[]
+pricesh=[]
+for line in file:
+    currentline=line.split(",")
+    (charge,cost)=currentline
+    chargesh.append(charge)
+    cost=float(cost)
+    pricesh.append(cost)
+    end
+file.close()
+
+#Order of prices killcharge,hangingweight,cube,patties,stewmeat,boning
+killCosth=pricesh[0]
+liveCosth=pricesh[1]
+hangingCosth=pricesh[2]
+cubeCosth=pricesh[3]
+pattiesCosth=pricesh[4]
+cureCost=pricesh[5]
+linkCost=pricesh[6]
+boningCosth=pricesh[7]
+
+#get the lamb prices
+file=open("pricesLamb.csv","r")
+chargesl=[]
+pricesl=[]
+for line in file:
+    currentline=line.split(",")
+    (charge,cost)=currentline
+    chargesl.append(charge)
+    cost=float(cost)
+    pricesl.append(cost)
+    end
+file.close()
+
+#Order of prices killcharge,hangingweight,cube,patties,stewmeat,boning
+killCostl=pricesl[0]
+liveCostl=pricesl[1]
+hangingCostl=pricesl[2]
+cubeCostl=pricesl[3]
+pattiesCostl=pricesl[4]
+stewCostl=pricesl[5]
+boningCostl=pricesl[6]
 
 %>
 <!DOCTYPE html>
@@ -58,43 +106,52 @@ boningCost=prices[6]
             </div>
             <div style="width: 33%; float: right;">
                 <p>Lamb Prices</p>
-                <label for="killl">Kill charge: --- New cost:   </label>
-                <input type="text" id="killl" name="killl" vaule="0">
+                <label for="killl">Kill charge: ${{killCostl}} --- New cost:   </label>
+                <input type="text" id="killl" name="killl" value="{{killCostl}}">
                 <br><br>
-                <label for="livel">Purchase cost: ${{liveCost}} --- New cost: </label>
-                <input type="text" id="livel" name="livel" value="{{liveCost}}">
+                <label for="livel">Purchase cost: ${{liveCostl}} --- New cost: </label>
+                <input type="text" id="livel" name="livel" value="{{liveCostl}}">
                 <br><br>
-                <label for="stewl">Stew cost: ${{stewCost}} --- New cost:</label>
-                <input type="text" id="stewl" name="stewl" value="{{stewCost}}">
+                <label for="hangingl">Processing cost: ${{hangingCostl}} --- New cost: </label>
+                <input type="text" id="hangingl" name="hangingl" value="{{hangingCostl}}">
                 <br><br>
-                <label for="boningl">Boning cost: ${{boningCost}} --- New cost:</label>
-                <input type="text" id="boningl" name="boningl" value="{{boningCost}}">
+                <label for="cubel">Cubing cost: ${{cubeCostl}} --- New cost: </label>
+                <input type="text" id="cubel" name="cubel" value="{{cubeCostl}}">
+                <br><br>
+                <label for="pattyl">Patty cost: ${{pattiesCostl}} --- New cost:</label>
+                <input type="text" id="pattyl" name="pattyl" value="{{pattiesCostl}}">
+                <br><br>
+                <label for="stewl">Stew cost: ${{stewCostl}} --- New cost:</label>
+                <input type="text" id="stewl" name="stewl" value="{{stewCostl}}">
+                <br><br>
+                <label for="boningl">Boning cost: ${{boningCostl}} --- New cost:</label>
+                <input type="text" id="boningl" name="boningl" value="{{boningCostl}}">
             </div>
             <div style="width: 33%;  margin-left: 33%;">
                 <p>Hog Prices</p>
-                <label for="killh">Kill charge: --- New cost:   </label>
-                <input type="text" id="killh" name="killh" vaule="0">
+                <label for="killh">Kill charge: ${{killCosth}} --- New cost:   </label>
+                <input type="text" id="killh" name="killh" value="{{killCosth}}">
                 <br><br>
-                <label for="live">Purchase cost: ${{liveCost}} --- New cost: </label>
-                <input type="text" id="live" name="live" value="{{liveCost}}">
+                <label for="liveh">Purchase cost: ${{liveCosth}} --- New cost: </label>
+                <input type="text" id="liveh" name="liveh" value="{{liveCosth}}">
                 <br><br>
-                <label for="hanging">Processing cost: ${{hangingCost}} --- New cost: </label>
-                <input type="text" id="hanging" name="hanging" value="{{hangingCost}}">
+                <label for="hangingh">Processing cost: ${{hangingCosth}} --- New cost: </label>
+                <input type="text" id="hangingh" name="hangingh" value="{{hangingCosth}}">
                 <br><br>
-                <label for="cube">Cubing cost: ${{cubeCost}} --- New cost: </label>
-                <input type="text" id="cube" name="cube" value="{{cubeCost}}">
+                <label for="cubeh">Cubing cost: ${{cubeCosth}} --- New cost: </label>
+                <input type="text" id="cubeh" name="cubeh" value="{{cubeCosth}}">
                 <br><br>
-                <label for="patty">Patty cost: ${{pattiesCost}} --- New cost:</label>
-                <input type="text" id="patty" name="patty" value="{{pattiesCost}}">
+                <label for="pattyh">Patty cost: ${{pattiesCosth}} --- New cost:</label>
+                <input type="text" id="pattyh" name="pattyh" value="{{pattiesCosth}}">
                 <br><br>
-                <label for="cure">Stew cost: ${{stewCost}} --- New cost:</label>
-                <input type="text" id="cure" name="cure" value="{{stewCost}}">
+                <label for="cure">Cure cost: ${{cureCost}} --- New cost:</label>
+                <input type="text" id="cure" name="cure" value="{{cureCost}}">
                 <br><br>
-                <label for="links">Links cost: ${{stewCost}} --- New cost:</label>
-                <input type="text" id="links" name="links" value="{{stewCost}}">
+                <label for="links">Links cost: ${{linkCost}} --- New cost:</label>
+                <input type="text" id="links" name="links" value="{{linkCost}}">
                 <br><br>
-                <label for="boning">Boning cost: ${{boningCost}} --- New cost:</label>
-                <input type="text" id="boning" name="boning" value="{{boningCost}}">
+                <label for="boningh">Boning cost: ${{boningCosth}} --- New cost:</label>
+                <input type="text" id="boningh" name="boningh" value="{{boningCosth}}">
             </div>
             <br>
             <button type="submit">Change Prices</button>
