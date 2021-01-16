@@ -24,6 +24,8 @@ stewWeight=request.forms.get('stewWeight')
 stewWeight=int(stewWeight)
 boningWeight=request.forms.get('boningWeight')
 boningWeight=int(boningWeight)
+wasteWeight=int(request.forms.get('wasteWeight'))
+deposit=float(request.forms.get('deposit'))
 
 #pull prices from CSV file
 file=open("pricesBeef.csv","r")
@@ -32,8 +34,6 @@ prices=[]
 for line in file:
     currentline=line.split(",")
     (charge,cost)=currentline
-    print(charge)
-    print(cost)
     charges.append(charge)
     cost=float(cost)
     prices.append(cost)
@@ -48,7 +48,9 @@ cubeCost=cubeWeight*prices[3]
 pattyCost=pattyWeight*prices[4]
 stewCost=stewWeight*prices[5]
 boningCost=boningWeight*prices[6]
-totalCost=killCharge+processingCost+cubeCost+pattyCost+stewCost+boningCost+purchaseCost
+wasteCost=wasteWeight*prices[7]
+subtotal=killCharge+processingCost+cubeCost+pattyCost+stewCost+boningCost+purchaseCost+wasteCost
+totalCost=subtotal-deposit
 
 #round to format correctly
 processingCost=str(round(processingCost, 2))
@@ -58,6 +60,9 @@ stewCost=str(round(stewCost, 2))
 boningCost=str(round(boningCost, 2))
 totalCost=str(round(totalCost, 2))
 purchaseCost=str(round(purchaseCost, 2))
+subtotal=str(round(subtotal, 2))
+wasteCost=str(round(wasteCost, 2))
+deposit=str(round(deposit, 2))
 
 #add to year totals
 
@@ -81,7 +86,7 @@ purchaseCost=str(round(purchaseCost, 2))
         <p class="right">Number brought in: {{orderAmount}}</p>
         <p class="left">Ticket Number: {{ticket}}</p>
         <p class="right">Date: {{date}}</p>
-        <p>________________________________________________________________</p>
+        <p>________________________________________________________________________</p>
         <p class="left">Kill Charge:</p> <p class="right">${{'{0:.2f}'.format(float(killCharge))}}</p>
         <p class="left">Processing charge:</p> <p class="right">${{'{0:.2f}'.format(float(processingCost))}} </p>
         <p class="left">Cube charge: </p> <p class="right">${{'{0:.2f}'.format(float(cubeCost))}}</p>
@@ -89,10 +94,13 @@ purchaseCost=str(round(purchaseCost, 2))
         <p class="left">Stew charge: </p> <p class="right">${{'{0:.2f}'.format(float(stewCost))}}</p>
         <p class="left">Boning charge: </p> <p class="right">${{'{0:.2f}'.format(float(boningCost))}}</p>
         <p class="left">Purchase cost: </p> <p class="right">${{'{0:.2f}'.format(float(purchaseCost))}}</p>
+        <p class="left">Waste cost: </p> <p class="right">${{'{0:.2f}'.format(float(wasteCost))}}</p>
+        <p class="left">Subtotal: </p> <p class="right">${{'{0:.2f}'.format(float(subtotal))}}</p>
+        <p class="left">Deposit: </p> <p class="right">-${{'{0:.2f}'.format(float(deposit))}}</p>
         <p class="left">Total cost: </p> <p class="right">${{'{0:.2f}'.format(float(totalCost))}}</p>
         <p>Butcher's Notes: </p>
-        <br>
-        <br>
+        <textarea rows="5" cols="75"></textarea>
+        <p></p>
         <button id="button1" onclick="window.print()">Save Invoice</button>
         <form action="/" method="route" >
 		    <input id="button2" type="submit" value="Return Home">

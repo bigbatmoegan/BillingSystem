@@ -25,6 +25,8 @@ cureWeight=int(cureWeight)
 linksWeight=int(request.forms.get('linksWeight'))
 boningWeight=request.forms.get('boningWeight')
 boningWeight=int(boningWeight)
+wasteWeight=int(request.forms.get('wasteWeight'))
+deposit=float(request.forms.get('deposit'))
 
 #pull prices from CSV file
 file=open("pricesHog.csv","r")
@@ -48,7 +50,9 @@ pattyCost=pattyWeight*prices[4]
 cureCost=cureWeight*prices[5]
 linkCost=linksWeight*prices[6]
 boningCost=boningWeight*prices[7]
-totalCost=killCharge+purchaseCost+processingCost+cubeCost+pattyCost+cureCost+linkCost+boningCost
+wasteCost=wasteWeight*prices[8]
+subtotal=killCharge+purchaseCost+processingCost+cubeCost+pattyCost+cureCost+linkCost+boningCost+wasteCost
+totalCost=subtotal-deposit
 
 #round to format correctly
 processingCost=str(round(processingCost, 2))
@@ -59,6 +63,8 @@ linkCost=str(round(linkCost, 2))
 boningCost=str(round(boningCost, 2))
 totalCost=str(round(totalCost, 2))
 purchaseCost=str(round(purchaseCost, 2))
+wasteCost=str(round(wasteCost, 2))
+deposit=str(round(deposit, 2))
 
 #add to year totals (Version 2)
 
@@ -91,10 +97,13 @@ purchaseCost=str(round(purchaseCost, 2))
         <p class="left">Links charge: </p> <p class="right">${{'{0:.2f}'.format(float(linkCost))}}</p>
         <p class="left">Boning charge: </p> <p class="right">${{'{0:.2f}'.format(float(boningCost))}}</p>
         <p class="left">Purchase cost: </p> <p class="right">${{'{0:.2f}'.format(float(purchaseCost))}}</p>
+        <p class="left">Waste cost: </p> <p class="right">${{'{0:.2f}'.format(float(wasteCost))}}</p>
+        <p class="left">Subtotal: </p> <p class="right">${{'{0:.2f}'.format(float(subtotal))}}</p>
+        <p class="left">Deposit: </p> <p class="right">-${{'{0:.2f}'.format(float(deposit))}}</p>
         <p class="left">Total cost: </p> <p class="right">${{'{0:.2f}'.format(float(totalCost))}}</p>
         <p>Butcher's Notes: </p>
-        <br>
-        <br>
+        <textarea rows="5" cols="75"></textarea>
+        <p></p>
         <button id="button1" onclick="window.print()">Save Invoice</button>
         <form action="/" method="route" >
 		    <input id="button2" type="submit" value="Return Home">

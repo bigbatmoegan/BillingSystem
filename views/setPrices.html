@@ -21,6 +21,7 @@ cubeCost=prices[3]
 pattiesCost=prices[4]
 stewCost=prices[5]
 boningCost=prices[6]
+wasteCost=prices[7]
 
 #get hog prices
 file=open("pricesHog.csv","r")
@@ -44,6 +45,7 @@ pattiesCosth=pricesh[4]
 cureCost=pricesh[5]
 linkCost=pricesh[6]
 boningCosth=pricesh[7]
+wasteCosth=pricesh[8]
 
 #get the lamb prices
 file=open("pricesLamb.csv","r")
@@ -66,6 +68,7 @@ cubeCostl=pricesl[3]
 pattiesCostl=pricesl[4]
 stewCostl=pricesl[5]
 boningCostl=pricesl[6]
+wasteCostl=pricesl[7]
 
 %>
 <!DOCTYPE html>
@@ -103,6 +106,9 @@ boningCostl=pricesl[6]
                 <br><br>
                 <label for="boning">Boning cost: ${{'{0:.2f}'.format(float(boningCost))}} --- New cost:</label>
                 <input type="text" id="boning" name="boning" value="{{'{0:.2f}'.format(float(boningCost))}}">
+                <br><br>
+                <label for="waste">Waste cost: ${{'{0:.2f}'.format(float(wasteCost))}} --- New cost:</label>
+                <input type="text" id="waste" name="waste" value="{{'{0:.2f}'.format(float(wasteCost))}}">
             </div>
             <div style="width: 33%; float: right;">
                 <p>Lamb Prices</p>
@@ -126,6 +132,9 @@ boningCostl=pricesl[6]
                 <br><br>
                 <label for="boningl">Boning cost: ${{'{0:.2f}'.format(float(boningCostl))}} --- New cost:</label>
                 <input type="text" id="boningl" name="boningl" value="{{'{0:.2f}'.format(float(boningCostl))}}">
+                <br><br>
+                <label for="wastel">Waste cost: ${{'{0:.2f}'.format(float(wasteCostl))}} --- New cost:</label>
+                <input type="text" id="wastel" name="wastel" value="{{'{0:.2f}'.format(float(wasteCostl))}}">
             </div>
             <div style="width: 33%;  margin-left: 33%;">
                 <p>Hog Prices</p>
@@ -152,6 +161,9 @@ boningCostl=pricesl[6]
                 <br><br>
                 <label for="boningh">Boning cost: ${{'{0:.2f}'.format(float(boningCosth))}} --- New cost:</label>
                 <input type="text" id="boningh" name="boningh" value="{{'{0:.2f}'.format(float(boningCosth))}}">
+                <br><br>
+                <label for="wasteh">Waste cost: ${{'{0:.2f}'.format(float(boningCosth))}} --- New cost:</label>
+                <input type="text" id="wasteh" name="wasteh" value="{{'{0:.2f}'.format(float(wasteCosth))}}">
             </div>
             <br>
             <button type="submit">Change Prices</button>

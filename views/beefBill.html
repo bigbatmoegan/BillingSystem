@@ -11,73 +11,41 @@
     <h1>Gettinger Family Custom Meats Billing System</h1>
     <h2>Please enter the following information</h2>
     <div style="width: 100%;">
-        <div style="width: 30%; float: left; margin-left: 28%">
+        <div style="width: 50%; float: left; margin-left: 25%">
             <form action="/beefRecipt" method="post">
                 <fieldset>
                     <p>Order information</p>
-                    <label for="name">Name: ___________ </label>
+                    <label for="name">Name: ____________________________ </label>
                     <input type="text" id="name" name="name" required><br><br>
-                    <label for="phone">Phone number: ____</label>
+                    <label for="phone">Phone number: _____________________</label>
                     <input type="text" id="phone" name="phone" required><br><br>
-                    <label for="ticket">Ticket number:_____ </label>
+                    <label for="ticket">Ticket number:______________________ </label>
                     <input type="text" id="ticket" name="ticket" required><br><br>
-                    <label for="date">Date: ____________ </label>
+                    <label for="date">Date: ______________________________ </label>
                     <input type="text" id="date" name="date" required><br><br>
-                    <label for="orderAmount">Amount brought in: _</label>
+                    <label for="orderAmount">Amount brought in (DECIMAL ONLY): ____</label>
                     <input type="text" id="orderAmount" name="orderAmount" required><br><br>
                     <p>Weights</p>
-                    <p>ONLY INCLUDE LIVE WEIGHT FOR PURCHASED BEEF</p><br>
-                    <label for="liveWeight">Live Weight: _______ </label>
+                    <p>Live weight only for purchased beef</p><br>
+                    <label for="liveWeight">Live Weight: _______________________ </label>
                     <input type="number" required id="liveWeight" name="liveWeight" min="0"><br><br>
-                    <label for="hangingWeight">Hanging weight: ____</label>
+                    <label for="hangingWeight">Hanging weight: ____________________</label>
                     <input type="number" id="hangingWeight" name="hangingWeight" min="0" required><br><br>
-                    <label for="cubeWeight">Cube weight: _______</label>
+                    <label for="cubeWeight">Cube weight: _______________________</label>
                     <input type="number" id="cubeWeight" name="cubeWeight" min="0" required><br><br>
-                    <label for="pattyWeight">Patty weight: _______ </label>
+                    <label for="pattyWeight">Patty weight: _______________________ </label>
                     <input type="number" id="pattyWeight" name="pattyWeight" min="0" required><br><br>
-                    <label for="stewWeight">Stew weight: _______ </label>
+                    <label for="stewWeight">Stew weight: _______________________ </label>
                     <input type="number" id="stewWeight" name="stewWeight" min="0" required><br><br>
-                    <label for="boningWeight">Boning weight: _____</label>
+                    <label for="boningWeight">Boning weight: ______________________</label>
                     <input type="number" id="boningWeight" name="boningWeight" min="0"required ><br><br>
+                    <label for="wasteWeight">Waste weight: ______________________</label>
+                    <input type="number" id="wasteWeight" name="wasteWeight" min="0"required><br><br>
+                    <label for="deposit">Deposit Amount: _____________________</label>
+                    <input type="number" step=".01" id="deposit" name="deposit" min="0" required><br><br>
                     <button type="submit">Calculate Bill</button>
                 </fieldset>
             </form>
-        </div>
-        <div style="margin-left: 65%">
-            <table border="1"> 
-                <tr> 
-                   <td colspan="3"><input type="text" id="result"/></td> 
-                   <!-- clr() function will call clr to clear all value -->
-                   <td><input type="button" value="c" onclick="clr()"/> </td> 
-                </tr> 
-                <tr> 
-                   <!-- create button and assign value to each button -->
-                   <!-- dis("1") will call function dis to display value -->
-                   <td><input type="button" value="1" onclick="dis('1')"/> </td> 
-                   <td><input type="button" value="2" onclick="dis('2')"/> </td> 
-                   <td><input type="button" value="3" onclick="dis('3')"/> </td> 
-                   <td><input type="button" value="/" onclick="dis('/')"/> </td> 
-                </tr> 
-                <tr> 
-                   <td><input type="button" value="4" onclick="dis('4')"/> </td> 
-                   <td><input type="button" value="5" onclick="dis('5')"/> </td> 
-                   <td><input type="button" value="6" onclick="dis('6')"/> </td> 
-                   <td><input type="button" value="-" onclick="dis('-')"/> </td> 
-                </tr> 
-                <tr> 
-                   <td><input type="button" value="7" onclick="dis('7')"/> </td> 
-                   <td><input type="button" value="8" onclick="dis('8')"/> </td> 
-                   <td><input type="button" value="9" onclick="dis('9')"/> </td> 
-                   <td><input type="button" value="+" onclick="dis('+')"/> </td> 
-                </tr> 
-                <tr> 
-                   <td><input type="button" value="." onclick="dis('.')"/> </td> 
-                   <td><input type="button" value="0" onclick="dis('0')"/> </td> 
-                   <!-- solve function call function solve to evaluate value -->
-                   <td><input type="button" value="=" onclick="solve()"/> </td> 
-                   <td><input type="button" value="*" onclick="dis('*')"/> </td> 
-                </tr> 
-             </table> 
         </div>
     </div>
 </body>

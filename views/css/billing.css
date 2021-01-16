@@ -12,6 +12,7 @@ p {
     font-size: 18px;
     width: 300px;
     font-family: Arial, sans-serif;
+    line-height: 7px;
 }
 
 input[type="button"]
@@ -25,14 +26,14 @@ input[type="button"]
 
 h1 {
     font-family: Arial, sans-serif;
-    font-size: 40px;
+    font-size: 36px;
     color: white;
     text-align: center;
 }
 
 h2 {
     font-family: Arial, sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     text-align: center;
     color: white;
 
@@ -40,7 +41,7 @@ h2 {
 
 h3 {
     font-family: Arial, sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     color: white;
 
@@ -64,7 +65,7 @@ input[type="submit"] {
 .rh1 {
     text-align: left;
     font-family: Arial, sans-serif;
-    font-size: 40px;
+    font-size: 36px;
     padding-left: 50px;
     color: white;
 
@@ -72,7 +73,7 @@ input[type="submit"] {
 
 .rh2 {
     font-family: Arial, sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     text-align: left;
     padding-left: 50px;
     color: white;
@@ -81,7 +82,7 @@ input[type="submit"] {
 
 .rh3 {
     font-family: Arial, sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
     padding-left: 237px;
     color: white;
@@ -96,3 +97,8 @@ body {
     background-color: darkred;
 }
 
+@media print {
+    #button1, #button2 {
+        display: none;
+    }
+}
