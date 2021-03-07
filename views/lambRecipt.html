@@ -24,7 +24,6 @@ stewWeight=request.forms.get('stewWeight')
 stewWeight=int(stewWeight)
 boningWeight=request.forms.get('boningWeight')
 boningWeight=int(boningWeight)
-wasteWeight=int(request.forms.get('wasteWeight'))
 deposit=float(request.forms.get('deposit'))
 
 #pull prices from CSV file
@@ -48,7 +47,7 @@ cubeCost=cubeWeight*prices[3]
 pattyCost=pattyWeight*prices[4]
 stewCost=stewWeight*prices[5]
 boningCost=boningWeight*prices[6]
-wasteCost=wasteWeight*prices[7]
+wasteCost=prices[7]*orderAmount
 subtotal=killCharge+processingCost+cubeCost+pattyCost+stewCost+boningCost+purchaseCost+wasteCost
 totalCost=subtotal-deposit
 

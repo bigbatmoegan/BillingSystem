@@ -25,7 +25,6 @@ cureWeight=int(cureWeight)
 linksWeight=int(request.forms.get('linksWeight'))
 boningWeight=request.forms.get('boningWeight')
 boningWeight=int(boningWeight)
-wasteWeight=int(request.forms.get('wasteWeight'))
 deposit=float(request.forms.get('deposit'))
 
 #pull prices from CSV file
@@ -50,7 +49,7 @@ pattyCost=pattyWeight*prices[4]
 cureCost=cureWeight*prices[5]
 linkCost=linksWeight*prices[6]
 boningCost=boningWeight*prices[7]
-wasteCost=wasteWeight*prices[8]
+wasteCost=prices[8]*orderAmount
 subtotal=killCharge+purchaseCost+processingCost+cubeCost+pattyCost+cureCost+linkCost+boningCost+wasteCost
 totalCost=subtotal-deposit
 
